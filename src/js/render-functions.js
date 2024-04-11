@@ -1,9 +1,7 @@
 import 'simplelightbox/dist/simple-lightbox.min.css';
 import SimpleLightbox from 'simplelightbox';
 
-export { createMarkup };
-export { lightbox };
-// export {  onClickImage };
+export { createMarkup, lightbox };
 
 function createMarkup(arr) {
   return arr
@@ -17,14 +15,16 @@ function createMarkup(arr) {
         comments,
         downloads,
       }) => `
-        <li class="item-card">
+        <li class="item-card loader">
         <a class="gallery-link" href="${largeImageURL}">
-            <img src="${webformatURL}" alt="${tags}" data-largeImage="${largeImageURL}" class="weather-icon">
+            <img class="result-icon" src="${webformatURL}" alt="${tags}" data-largeImage="${largeImageURL}" >
             </a>
-            <p class="likes">Likes <span>${likes}</span></p>
-            <p class="views">Views ${views}</p>
-            <p class="comments">Comments ${comments}</p>
-            <p class="downloads">Downloads ${downloads}</p>
+            <div class="info">
+            <div><p class="likes">Likes <div>${likes}</div></p></div>
+            <div><p class="views">Views <div>${views}</div></p></div>
+            <div><p class="comments">Comments <div>${comments}</div></p></div>
+            <div><p class="downloads">Downloads <div>${downloads}<div></p></div>
+            </div>
         </li>
     `
     )
@@ -32,7 +32,6 @@ function createMarkup(arr) {
 }
 
 const lightbox = new SimpleLightbox('.item-card a', {
-    /* options */
-    captionsData: 'alt'
-  });
-
+  /* options */
+  captionsData: 'alt',
+});

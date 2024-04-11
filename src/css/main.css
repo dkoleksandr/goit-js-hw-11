@@ -1,14 +1,35 @@
-.item-card{
-    width: 360px;
-    display: flex;
-    flex-wrap: wrap;
+.js-search-form {
+  display: flex;
+  justify-content: center;
+  gap: 10px;
+  margin: 30px;
 }
 
-.gallery{
-    display: flex;
-    flex-wrap: wrap;
-    gap: 24px;
-    max-width: 1128px;
-    width: 100%;
-    margin: auto;
+.info {
+  display: flex;
+  justify-content: center;
+  gap: 30px;
+}
+.item-card {
+  border: 2px solid #ddd;
+  width: calc((100% - 24px * 2) / 3);
+  display: flex;
+  flex-wrap: wrap;
+}
+
+.gallery {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 24px;
+  max-width: 1128px;
+  width: 100%;
+  margin: auto;
+}
+
+img {
+  display: block;
+  max-width: 100%;
+  height: auto;
+  max-height: 200px;
+  object-fit: cover;
 }
