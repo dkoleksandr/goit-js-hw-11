@@ -12,8 +12,13 @@ searchForm.addEventListener('submit', handleSubmit);
 
 function handleSubmit(event) {
   event.preventDefault();
+  const search = event.target.elements.search.value;
 
-  setSearchValue(event.target.elements.search.value);
+  if (!search) {
+    return;
+  }
+
+  setSearchValue(search);
 
   fetchData(BASE_URL, new URLSearchParams(params))
     .then(data => {
