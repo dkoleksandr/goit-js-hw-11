@@ -1,0 +1,14 @@
+.item-card{
+    width: 360px;
+    display: flex;
+    flex-wrap: wrap;
+}
+
+.gallery{
+    display: flex;
+    flex-wrap: wrap;
+    gap: 24px;
+    max-width: 1128px;
+    width: 100%;
+    margin: auto;
+}
