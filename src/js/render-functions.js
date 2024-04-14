@@ -15,7 +15,7 @@ function createMarkup(arr) {
         comments,
         downloads,
       }) => `
-        <li class="item-card loader">
+        <li class="item-card">
         <a class="gallery-link" href="${largeImageURL}">
             <img class="result-icon" src="${webformatURL}" alt="${tags}" data-largeImage="${largeImageURL}" >
             </a>

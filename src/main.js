@@ -5,13 +5,15 @@ import { createMarkup, lightbox } from './js/render-functions';
 import { fetchData, BASE_URL, params, setSearchValue } from './js/pixabay-api';
 
 const searchForm = document.querySelector('.js-search-form');
-
 const gallery = document.querySelector('.gallery');
+const loader = document.querySelector('.loader');
 
 searchForm.addEventListener('submit', handleSubmit);
 
 function handleSubmit(event) {
   event.preventDefault();
+
+  loader.classList.remove('is-hidden');
   const search = event.target.elements.search.value;
 
   if (!search) {
@@ -33,11 +35,13 @@ function handleSubmit(event) {
       }
 
       gallery.innerHTML = '';
-
       searchForm.reset();
 
       gallery.insertAdjacentHTML('beforeend', createMarkup([...data.hits]));
       lightbox.refresh();
     })
-    .catch(error => alert(error));
+    .catch(error => alert(error))
+    .finally(() => {
+      loader.classList.add('is-hidden');
+    });
 }
