@@ -13,6 +13,7 @@ searchForm.addEventListener('submit', handleSubmit);
 function handleSubmit(event) {
   event.preventDefault();
 
+  gallery.innerHTML = '';
   loader.classList.remove('is-hidden');
   const search = event.target.elements.search.value;
 
@@ -34,7 +35,6 @@ function handleSubmit(event) {
         return;
       }
 
-      gallery.innerHTML = '';
       searchForm.reset();
 
       gallery.insertAdjacentHTML('beforeend', createMarkup([...data.hits]));
